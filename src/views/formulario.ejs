@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head-form'); %>
+</head>
+<body>
+    <h1>Bienvenido  <%#=userName%> </h1>
+    
+    <form onsubmit="return enviarProducto()">
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" placeholder="nombre del producto">
+
+        <label for="price">Price:</label>
+        <input type="number" name="price" id="price" placeholder="precio">
+
+        <label for="thumbnail">url de imagen:</label>
+        <input type="text" name="thumbnail" id="thumbnail" placeholder="ej. https://picsum.photos/200">
+
+        <button type="submit" >crear producto</button>
+    </form>
+
+    <div id="main-container">
+        <table>
+            <thead>
+                <tr>
+                <th >Title</th>
+                <th >Price</th>
+                <th >Imagen</th>
+                </tr>
+            </thead>
+            <tbody id='productsTable' >
+                <% prods.map(prod => { %>    
+                    <tr>
+                        <td> <%=prod.title %> </td>
+                        <td> <%=prod.price %> </td>
+                        <td><img src="<%=prod.thumbnail %>" alt="<%=prod.title %>" width="25"></td>
+                    </tr>
+                <%}) %> 
+            </tbody> 
+        </table>
+    </div>
+
+    <form onsubmit="return enviarMensaje()">
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" placeholder="ej test@gmail.com">
+
+        <label for="text">Mensaje</label>
+        <input type="text" name="text" id="text" placeholder="ingresar mensaje">
+
+        <button type="submit">Enviar Mensaje</button>
+    </form>
+
+    <div id="messagesTable">
+        <% msgs.map(msg => { %>    
+            
+            <p><%=msg.email %></p>
+            <p><%=msg.time %></p>
+            <p><%=msg.text %></p>
+
+            <%}) %> 
+    </div> 
+    <br><br> 
+
+    <a  class= "css-button-sliding-to-top--red" href="/logout">Logout</a> 
+
+    <script>
+        setTimeout(()=> {
+            location.href = '/'
+        } , 60000)
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head-register'); %>
+</head>
+<body>
+    <form action="/register" method="POST">
+        
+        <label for="username">Nombre de usuario:</label> <br> <br>
+        <input type="text" name="username" id="username" placeholder="ej: pepe10" required><br> <br>
+
+        <label for="password">Contraseña:</label> <br> <br>
+        <input type="password" name="password" id="password" placeholder="contraseña" required>
+        <br><br>
+
+        <button class="css-button-sliding-to-top--green" type="submit">Registrarse</button>
+    </form>
+    <br><br>
+    <div>
+        <a href="http://localhost:8080/">Iniciar sesion</a>
+    </div>
+</body>
+</html>
